@@ -1,0 +1,25 @@
+page-home {
+
+}
+
+.item-md ion-thumbnail ion-img, .item-md ion-thumbnail img {
+    width: 90px;
+    height: 90px;
+}
+.custom-toolbar{
+    text-align: end;
+}
+
+.post-image{
+    position: relative;
+     text-align: center;
+      color: white;
+}
+.post-image-title{
+    position:absolute;
+    bottom:0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.56);
+    color: #fff;
+     text-align: center;
+}

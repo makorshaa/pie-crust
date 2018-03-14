@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+      <ion-title style="text-transform: uppercase;">
+          {{post.category}}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button>
+              <ion-icon name="logo-facebook" class="custom-icon facebook"></ion-icon>
+            </button>
+            <button ion-button>
+                <ion-icon name="logo-twitter" class="custom-icon twitter"></ion-icon>
+              </button>
+          </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <h2> {{post.title}}</h2>
+  <ion-img height="40%" width="100%" src="{{post.feature_image}}"></ion-img>
+  <div [innerHTML]="html"></div>
+</ion-content>

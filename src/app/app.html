@@ -1,0 +1,68 @@
+
+<ion-header ion-fixed class="custom-toolbar" *ngIf="!navbarIsHidden" ng-click="clickfooter();">
+    <ion-toolbar>
+        <button ion-button menuToggle left class="icon-wrapper" (click)="initializeMenuItems()">
+            <ion-icon name="menu" class="custom-icon"></ion-icon>
+          </button>
+      <ion-buttons>
+        <button ion-button (click)="openPage('home')" style="margin-right: 15px;" class="icon-wrapper">
+              <ion-icon name="md-home" class="footer-icon custom-icon"></ion-icon>
+            </button>
+        <a button ion-button style="margin-right: 15px;" class="icon-wrapper" href="https://www.youtube.com/channel/UC6A4PIESjI6czvt-GubM8FQ"
+          target="_blank">
+          <ion-icon name="logo-youtube" class="footer-icon custom-icon youtube"></ion-icon>
+        </a>
+        <a button ion-button style="margin-right: 15px;" class="icon-wrapper" href="https://www.facebook.com/ProfitInEquities" target="_blank">
+          <ion-icon name="logo-facebook" class="footer-icon custom-icon facebook"></ion-icon>
+        </a>
+        <a button ion-button style="margin-right: 15px;" class="icon-wrapper" href="https://twitter.com/ProfitInEquity" target="_blank">
+          <ion-icon name="logo-twitter" class="footer-icon custom-icon twitter"></ion-icon>
+        </a>
+        <button ion-button class="icon-wrapper" style="width: 29%" (click)="openPage('subscribe')">
+              <button ion-button round outline small style="font-size: 79%;" class="subscribe-outline-button footer-icon">Subscribe</button>
+        </button>
+      </ion-buttons>
+      
+    </ion-toolbar>
+  </ion-header>
+  <ion-menu id="card-menu" class="card-menu" [content]="content" side="left" padding>
+      
+        <ion-content>
+          <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()" placeholder="Search categories"></ion-searchbar>
+          <h6 class="title-center">CATEGORIES</h6>
+          <ion-list>
+            <ion-item *ngFor="let category of categories">
+              <button ion-item text-wrap (click)="showSelectedCategoryCards(category.id)"> {{ category.name}} </button>
+            </ion-item>
+          </ion-list>
+          <h6 class="title-center">TIMELINE</h6>
+          <div class="calender-align" *ngFor="let items of updated_publishlist; let i=index" text-wrap>
+            <ion-list>
+              <ion-item class="list-selector" (click)="toggleGroup(i);getmonths(items);" [ngClass]="{active: isGroupShown(i)}">
+                <h3>
+                  {{items.year}}
+                  <ion-icon item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+                </h3>
+              </ion-item>
+            </ion-list>
+            <div *ngIf="isGroupShown(i)">
+              <ion-list>
+                <ion-item *ngFor="let month of listedMonthsForThisYear">
+                  <button ion-item (click)="showCardsByMonth(items.year,month)">
+                    {{ month }}
+                  </button>
+                </ion-item>
+      
+              </ion-list>
+            </div>
+          </div>
+      
+      
+        </ion-content>
+      
+      </ion-menu>
+
+
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
