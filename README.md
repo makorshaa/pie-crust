@@ -72,4 +72,6 @@ ionic serve
 ### Todos
 
  - Write Tests Cases
- - Add Video Mode
+ - Add Video Mode and Compression
+ - Usability Upgrades
+ - Web Performance Tests
