@@ -1,6 +1,6 @@
 # PIE Crust
 
-![PIE Labs](https://raw.githubusercontent.com/akashmitra/pie/master/PILabs.jpg)
+![PIE Labs](https://raw.githubusercontent.com/pie-labs/pie-crust/master/PILabs.jpg)
 
 PIE Crust is an Angular5-Ionic3 based hybrid app that consumes Ghost Services. Crust serves as the app front end for http://profitinequities.com/. 
 
